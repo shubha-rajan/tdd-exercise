@@ -20,17 +20,10 @@ def blackjack_score(hand)
     end
   end
 
-  score = 0
+  score = hand_scores.sum
 
-  if hand_scores.include?(1)
-    score_without_aces = hand_scores.sum
-    if (score_without_aces + 10) <= 21
-      score = score_without_aces + 10
-    else
-      score = score_without_aces
-    end
-  else
-    score = hand_scores.sum
+  if (hand_scores.include?(1)) && ((score + 10) <= 21)
+    score += 10
   end
 
   return score
